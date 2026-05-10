@@ -1,0 +1,27 @@
+<launch>
+
+     <arg name="urdf_path"
+          default="$(find-pkg-share thymio_mini_project)/urdf/thymio.urdf.xacro"/>
+
+    <arg name="rviz_config_path"
+         default="$(find-pkg-share thymio_mini_project)/rviz/urdf_config.rviz"/>
+
+    <node pkg="robot_state_publisher" exec="robot_state_publisher">
+        <param name="robot_description"
+               value="$(command 'xacro $(var urdf_path)')"/>
+    </node>
+
+    <node pkg="rviz2" exec="rviz2" output="screen"
+          args="-d $(var rviz_config_path)" />
+
+     <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py">
+          <arg name="world" value="$(find-pkg-share thymio_mini_project)/worlds/two_parts_maze.world"/>
+          <!-- <arg name="world" value="$(find-pkg-share thymio_mini_project)/worlds/maze_6x6.world"/> -->
+     </include>
+
+     <node pkg="gazebo_ros" exec="spawn_entity.py"
+           args="-topic robot_description -entity thymio 
+                 -x 0.1 -y 0.1 -z 0.0
+                 -R 0.0 -P 0.0 -Y 0.0"/>
+
+</launch>
