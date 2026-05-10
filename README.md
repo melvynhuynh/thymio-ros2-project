@@ -10,7 +10,7 @@ ROS2/Gazebo autonomous maze navigation project developed during the EPFL MICRO-4
 
 ## Demo Video
 
-[Demo Video](demo/thymio_ros2_simulation.mp4)
+<video src="demo/thymio_ros2_simulation.mp4" controls width="700"></video>
 
 ## Report
 
