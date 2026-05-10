@@ -5,8 +5,8 @@ ROS2/Gazebo autonomous maze navigation project developed during the EPFL MICRO-4
 ## Authors
 
 - Melvyn Huynh
-- Florian Kighelman
 - Yann Thomé
+- Florian Kighelman
 
 ## Demo Video
 
